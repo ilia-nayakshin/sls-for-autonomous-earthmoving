@@ -20,11 +20,11 @@ PLOT_PIX_LINE_RES = 10
 L_S = 20
 
 # setup variables
-ppix_num = 20 # this is 'N'
-a = 0
+ppix_num = 80 # this is 'N'
+a = 2
 cpix_num = round(ppix_num * (1 + a))
 
-t = np.array([0, 0, 20])
+t = np.array([1000, 0, -1000])
 zbar = 100 # surface distance
 ralpha = 0 # no rotation about z axis to maximise image capture
 
@@ -71,9 +71,10 @@ sim.add_points(points)
 sim.plot_points()
 
 # get error
-total, mean, errors = estimate_depth_error(point_map, surface)
+total, mean, errors, mean_diff = estimate_depth_error(point_map, surface)
 print('Total Error:', total)
 print('Mean Error:', mean)
+print('Mean Diff:', mean_diff)
 # show_error_img(errors, gv.SHOW_IMG_SIZE)
 show_error_bar_chart(errors)
 
@@ -100,3 +101,4 @@ save_error_details('n-{n}_a-{a}_t-{t_x}-{t_y}-{t_z}.npz'.format(n=ppix_num,
                                                                 a=a, t_x=t[0],
                                                                 t_y=t[1], t_z=t[2]), 
                                                                 sim, errors, gv)
+
