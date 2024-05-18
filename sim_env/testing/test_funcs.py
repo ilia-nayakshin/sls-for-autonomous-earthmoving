@@ -26,3 +26,44 @@ def test_plane(d, n):
         zz = (d - n[0] * xx - n[1] * yy) / n[2]
         return xx, yy, zz
     return plane
+
+
+def test_embankment_x(d, ddiff, slope):
+    '''returns a function that models an embankment with given slope in x direction'''
+    xdiff = ddiff / np.tan(slope)
+    xmin = -xdiff / 2
+    xmax = xdiff / 2
+    dmin = d - ddiff/2
+    dmax = d + ddiff/2
+    def embankment(x, y, z):
+        xx, yy = np.meshgrid(x, y)
+        xismin = np.less_equal(x, xmin).astype(int)
+        xismax = np.greater_equal(x, xmax).astype(int)
+        zz = xismin * dmin + xismax * dmax + np.logical_not(xismin) * np.logical_not(xismax) * np.add((xx * np.tan(slope)), d)
+        # if x <= xmin:
+        #     zz = [[dmin]]
+        # elif x >= xmax:
+        #     zz = [[dmax]]
+        # else:
+        #     zz = [[d]] + xx * np.tan(slope)
+        return xx, yy, zz
+    return embankment
+
+
+def test_embankment_y(d, ddiff, slope):
+    '''returns a function that models an embankment with given slope in y direction'''
+    ydiff = ddiff / np.tan(slope)
+    ymin = -ydiff / 2
+    ymax = ydiff / 2
+    dmin = d - ddiff/2
+    dmax = d + ddiff/2
+    def embankment(x, y, z):
+        xx, yy = np.meshgrid(x, y)
+        if y <= ymin:
+            zz = [[dmin]]
+        elif y >= ymax:
+            zz = [[dmax]]
+        else:
+            zz = [[d]] + xx * np.tan(slope)
+        return xx, yy, zz
+    return embankment

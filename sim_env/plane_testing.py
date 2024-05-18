@@ -19,13 +19,16 @@ INDEX_LINE_RES = 1000
 PLOT_PIX_LINE_RES = 10
 L_S = 20
 
+SLOPE = (np.pi / 180) * 30
+
 # setup variables
-ppix_num = 80 # this is 'N'
-a = 2
+ppix_num = 20 # this is 'N'
+a = 0
 cpix_num = round(ppix_num * (1 + a))
 
-t = np.array([1000, 0, -1000])
+t = np.array([1000, 0, 0])
 zbar = 100 # surface distance
+zdiff = 2 # embankment height
 ralpha = 0 # no rotation about z axis to maximise image capture
 
 theta_x = np.arctan(t[0] / (zbar - t[2]))
@@ -59,10 +62,11 @@ cambbox = bounding_box([[min(-edge, -t[0]), max(edge, t[0])],
 
 # setup simulation environment
 sim = sim_env()
-surface = test_plane(zbar, np.array([0, 0, 1]))
+# surface = test_plane(zbar, np.array([0, 0, 1])) # simple plane test
+surface = test_embankment_x(zbar, zdiff, SLOPE)
 sim.add_surfaces([surface], [bbox], [30])
 
-project_and_capture(sim, gv, bbox, cambbox, True, False, False, False, False, False)
+sim = project_and_capture(sim, gv, bbox, cambbox, True, False, False, False, False, False)
 depths, point_map = find_point_map(sim.projector, sim.camera)
 
 # show points
@@ -76,7 +80,7 @@ print('Total Error:', total)
 print('Mean Error:', mean)
 print('Mean Diff:', mean_diff)
 # show_error_img(errors, gv.SHOW_IMG_SIZE)
-show_error_bar_chart(errors)
+# show_error_bar_chart(errors)
 
 # show camera and translation matrix
 sim.show_projcam_locations()
