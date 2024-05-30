@@ -18,7 +18,7 @@ class sim_env():
         self.surfaces = []
         self.surf_bounds = []
         self.surf_resolutions = []
-        self.ax = setup_3d()
+        # self.ax = setup_3d()
     
     def add_points(self, points):
         for point in points:

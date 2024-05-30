@@ -19,17 +19,22 @@ INDEX_LINE_RES = 1000
 PLOT_PIX_LINE_RES = 10
 L_S = 20
 
-SLOPE = (np.pi / 180) * 30
+# angle = 30
+# SLOPE = (np.pi / 180) * angle
 
 # setup variables
-ppix_num = 20 # this is 'N'
-a = 0
+ppix_num = 1 # this is 'N'
+a = 1
 cpix_num = round(ppix_num * (1 + a))
 
-t = np.array([1000, 0, 0])
+t = np.array([100, 0, 0])
 zbar = 100 # surface distance
-zdiff = 2 # embankment height
+# xdiff = 4
+sigma = 3.33333
+zdiff = 5.496 # mound height.
 ralpha = 0 # no rotation about z axis to maximise image capture
+
+print(ppix_num, a, t[0])
 
 theta_x = np.arctan(t[0] / (zbar - t[2]))
 theta_y =  np.arctan(t[1] / (zbar - t[2]))
@@ -38,8 +43,11 @@ rgamma = theta_y
 
 # 'beta' ratio parameters. used to construct camera/projection matrices.
 beta_p = L_S / (2 * zbar)
-beta_c_x = np.tan(theta_x - np.arctan((np.abs(t[0]) - (L_S / 2)) / (zbar - t[2])))
-beta_c_y = np.tan(theta_y - np.arctan((np.abs(t[1]) - (L_S / 2)) / (zbar - t[2])))
+beta_c_x = np.tan(np.abs(theta_x) - np.arctan((np.abs(t[0]) - (L_S / 2)) / (zbar - t[2])))
+beta_c_y = np.tan(np.abs(theta_y) - np.arctan((np.abs(t[1]) - (L_S / 2)) / (zbar - t[2])))
+
+if theta_x < 0: beta_c_x *= -1
+if theta_y < 0: beta_c_y *= -1
 
 print('beta p, c_x, c_y:', beta_p, beta_c_x, beta_c_y, 'r a,b,c:',ralpha, rbeta, rgamma)
 
@@ -63,7 +71,10 @@ cambbox = bounding_box([[min(-edge, -t[0]), max(edge, t[0])],
 # setup simulation environment
 sim = sim_env()
 # surface = test_plane(zbar, np.array([0, 0, 1])) # simple plane test
-surface = test_embankment_x(zbar, zdiff, SLOPE)
+# surface = test_trench_x(zbar, zdiff, xdiff, SLOPE)
+surface = test_2d_gaussian(zbar, zdiff, sigma)
+# surface = test_embankment_x(zbar, zdiff, SLOPE)
+# surface = test_corrugations(zbar, 4, 4, 10, 10)
 sim.add_surfaces([surface], [bbox], [30])
 
 sim = project_and_capture(sim, gv, bbox, cambbox, True, False, False, False, False, False)
@@ -75,10 +86,10 @@ sim.add_points(points)
 sim.plot_points()
 
 # get error
-total, mean, errors, mean_diff = estimate_depth_error(point_map, surface)
+total, mean, errors = estimate_depth_error(point_map, surface)
 print('Total Error:', total)
 print('Mean Error:', mean)
-print('Mean Diff:', mean_diff)
+# print('Mean Diff:', mean_diff)
 # show_error_img(errors, gv.SHOW_IMG_SIZE)
 # show_error_bar_chart(errors)
 
@@ -88,20 +99,21 @@ sim.show_camera_translation()
 
 # show image matrix and key line
 sim.plot_image_plane(25)
-# sim.plot_R_Kinv_u(np.array([2, 2, 1]), gv.PLOT_PIX_LINE_RES, 100)
+# sim.plot_R_Kinv_u(np.array([12, 12, 1]), gv.PLOT_PIX_LINE_RES, zbar)
 
-# # plot light plane
+# plot light plane
 # sim.calc_projector_pixel_centres(gv.INDEX_LINE_RES)
-# sim.show_light_plane(0)
+# sim.show_light_plane(11)
 
 # sim.plot_pix_lines(cambbox, PLOT_PIX_LINE_RES, True)
 sim.plot_pix_planes()
 # sim.projector.plot_pix_lines(sim.ax, bbox, PLOT_PIX_LINE_RES, True)
 # sim.plot_surfaces()
-sim.plot_corner_lines(cambbox, gv.PLOT_PIX_LINE_RES, bbox, gv.PLOT_PIX_LINE_RES, True)
+# sim.plot_corner_lines(cambbox, gv.PLOT_PIX_LINE_RES, bbox, gv.PLOT_PIX_LINE_RES, True)
 plt.show()
 
-save_error_details('n-{n}_a-{a}_t-{t_x}-{t_y}-{t_z}.npz'.format(n=ppix_num, 
+save_error_details('mound_delz{delz}_sigma{sigma}_n{n}_a-{a}_t-{t_x}-{t_y}-{t_z}.npz'.format(delz=zdiff, 
+                                                                sigma=sigma, n=ppix_num,
                                                                 a=a, t_x=t[0],
                                                                 t_y=t[1], t_z=t[2]), 
                                                                 sim, errors, gv)

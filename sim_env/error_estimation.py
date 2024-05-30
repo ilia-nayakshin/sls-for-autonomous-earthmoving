@@ -11,7 +11,7 @@ def estimate_depth_error(points, surf_func, neglect_zeros=True):
     for each point in points. neglect_zeros = True means that any points
     at the origin are ignored for the purposes of error estimation.'''
     total_error = 0
-    total_diff = 0
+    # total_diff = 0
     count = 0
     errors = np.zeros(np.shape(points)[:2])
     for i_r, row in enumerate(points):
@@ -21,17 +21,17 @@ def estimate_depth_error(points, surf_func, neglect_zeros=True):
             diff = surf_point.T - point
             error = np.sqrt(np.dot(diff, diff))
             if (neglect_zeros and np.linalg.norm(point) != 0.0) or not neglect_zeros:
-                total_diff += diff
+                # total_diff += diff
                 total_error += error
                 errors[i_r, i_c] = error
                 count += 1
     if count != 0:
         mean_error = total_error / count
-        mean_diff = total_diff / count
+        # mean_diff = total_diff / count
     else:
         mean_error = None
-        mean_diff = None
-    return total_error, mean_error, errors, mean_diff
+        # mean_diff = None
+    return total_error, mean_error, errors
  
 
 

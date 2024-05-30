@@ -262,7 +262,7 @@ def project_and_capture(sim, gvs, bbox, cambbox, show_images=False, show_pix_lin
     sim.setup_camera(gvs.CAM_MAT, gvs.FOC_LEN, gvs.CPIX_NUM, gvs.CPIX_NUM, gvs.R, gvs.T)
 
     # calculate indices for grid
-    sim.calc_proj_pix_indices_for_camera_grid(gvs.INDEX_LINE_RES, True)
+    sim.calc_proj_pix_indices_for_camera_grid(gvs.INDEX_LINE_RES, False)
     
     # setup data - this may be only one image or it may be multiple.
     if len(np.shape(gvs.DATA)) == 3:
