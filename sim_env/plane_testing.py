@@ -19,17 +19,17 @@ INDEX_LINE_RES = 1000
 PLOT_PIX_LINE_RES = 10
 L_S = 20
 
-# angle = 30
+# angle = 60
 # SLOPE = (np.pi / 180) * angle
 
 # setup variables
-ppix_num = 1 # this is 'N'
-a = 1
+ppix_num = 80 # this is 'N'
+a = 0
 cpix_num = round(ppix_num * (1 + a))
 
-t = np.array([100, 0, 0])
+t = np.array([75, 0, 0])
 zbar = 100 # surface distance
-# xdiff = 4
+xdiff = 4
 sigma = 3.33333
 zdiff = 5.496 # mound height.
 ralpha = 0 # no rotation about z axis to maximise image capture
@@ -112,9 +112,9 @@ sim.plot_pix_planes()
 # sim.plot_corner_lines(cambbox, gv.PLOT_PIX_LINE_RES, bbox, gv.PLOT_PIX_LINE_RES, True)
 plt.show()
 
-save_error_details('mound_delz{delz}_sigma{sigma}_n{n}_a-{a}_t-{t_x}-{t_y}-{t_z}.npz'.format(delz=zdiff, 
-                                                                sigma=sigma, n=ppix_num,
-                                                                a=a, t_x=t[0],
-                                                                t_y=t[1], t_z=t[2]), 
-                                                                sim, errors, gv)
+# save_error_details('mound_delz{delz}_sigma{sigma}_n{n}_a-{a}_t-{t_x}-{t_y}-{t_z}.npz'.format(delz=zdiff, 
+#                                                                 sigma=sigma, n=ppix_num,
+#                                                                 a=a, t_x=t[0],
+#                                                                 t_y=t[1], t_z=t[2]), 
+#                                                                 sim, errors, gv)
 
