@@ -158,6 +158,7 @@ to help understand the results and discussion, a flowchart showing the
 data transferred throughout the running of the code is provided below.
 
 <img width="100%" src="readme_img/flow_main.png" name="fg_flow_main">
+
 **Figure 1**: Flow diagram showing main information flow of the program.
 
 Figure [1](#fg_flow_main) above shows the main loop of the program. The first step is to define
@@ -188,6 +189,7 @@ error, outputs are displayed for interpretation and data is saved in
 case tests need to be re-analysed again later.
 
 <img width="100%" src="readme_img/flow_project_and_capture.png" name="fg_flow_project_and_capture">
+
 **Figure 2**: Flow diagram showing information flow for `projectandcapture`
 subroutine.
 
@@ -201,6 +203,7 @@ computes which projected pixel is intersected by each camera ray.
 Finally, this data is converted to images and `sim` is updated.
 
 <img width="100%" src="readme_img/flow_calc_proj_pix_indices_for_camera_grid.png" name="fg_flow_calc_proj_pix_indices">
+
 **Figure 3**: Flow diagram showing information flow for
 `sim.calcprojpixindicesforcameragrid`
 subroutine.
@@ -240,6 +243,7 @@ pixel indices", i.e., the indices of the projected pixel that each
 camera pixel sees.
 
 <img width="100%" src="readme_img/flow_find_point_map.png" name="fg_flow_find_point_map">
+
 **Figure 4**: Flow diagram showing information flow for
 `findpointmap`.
 
