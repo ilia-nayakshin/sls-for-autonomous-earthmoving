@@ -157,13 +157,10 @@ As a further aid to understanding the functionality of the program, and
 to help understand the results and discussion, a flowchart showing the
 data transferred throughout the running of the code is provided below.
 
-<img width="100%" src="readme_img/flow_main.png">
-![Flow diagram showing main information flow of the
-program.](readme_img/flow_main.png)
+<img width="100%" src="readme_img/flow_main.png" name="fg_flow_main>
 **Figure 1**: Flow diagram showing main information flow of the program.
 
-Figure [1](#fg_flow_main){reference-type="ref" reference="fg_flow_main"}
-above shows the main loop of the program. The first step is to define
+Figure [1](#fg_flow_main) above shows the main loop of the program. The first step is to define
 `globals`, which contains all the necessary global variables and forms
 an input to certain functions. Next, the surface function is defined
 based on supplied surface parameters, including $\bar{z}$. In the
@@ -177,28 +174,24 @@ The next step is to run the procedure `projectandcapture`, which takes
 as input both the `sim` and `globals` objects and computes the images
 produced by the camera and the projector. This is the main intricacy of
 the code, and so is broken down into further detail in Figures
-[2](#fg_flow_project_and_capture){reference-type="ref"
-reference="fg_flow_project_and_capture"} and
-[3](#fg_flow_calc_proj_pix_indices){reference-type="ref"
-reference="fg_flow_calc_proj_pix_indices"} below.
+[2](#fg_flow_project_and_capture) and
+[3](#fg_flow_calc_proj_pix_indices) below.
 
 The `sim` object is subsequently updated to hold the images and camera
 and projector pixel rays (to minimise computational load), and the `cam`
 and `proj` objects (containing the aforementioned images) form the input
 to the subroutine `findpointmap` (also explained in more detail in
-Figure [4](#fg_flow_find_point_map){reference-type="ref"
-reference="fg_flow_find_point_map"}).
+Figure [4](#fg_flow_find_point_map)).
 
 Finally, the calculated point cloud is compared against the surface for
 error, outputs are displayed for interpretation and data is saved in
 case tests need to be re-analysed again later.
 
-![Flow diagram showing information flow for `projectandcapture`
-subroutine.](readme_img/flow_project_and_capture.png){#fg_flow_project_and_capture
-width="\\textwidth"}
+<img width="100%" src="readme_img/flow_project_and_capture.png" name="fg_flow_project_and_capture">
+**Figure 2**: Flow diagram showing information flow for `projectandcapture`
+subroutine.
 
-Figure [2](#fg_flow_project_and_capture){reference-type="ref"
-reference="fg_flow_project_and_capture"} above breaks down the
+Figure [2](#fg_flow_project_and_capture) above breaks down the
 `projectandcapture` subroutine into smaller procedures. The subroutine
 begins with `sim`, setting up the projector and the camera respectively.
 These subroutines take the respective projector and camera parameters as
@@ -207,10 +200,10 @@ updated before running `sim.calcprojpixindicesforcameragrid`, which
 computes which projected pixel is intersected by each camera ray.
 Finally, this data is converted to images and `sim` is updated.
 
-![Flow diagram showing information flow for
+<img width="100%" src="readme_img/flow_calc_proj_pix_indices_for_camera_grid.png" name="fg_flow_calc_proj_pix_indices">
+**Figure 3**: Flow diagram showing information flow for
 `sim.calcprojpixindicesforcameragrid`
-subroutine.](readme_img/flow_calc_proj_pix_indices_for_camera_grid.png){#fg_flow_calc_proj_pix_indices
-width="\\textwidth"}
+subroutine.
 
 The `sim.calcprojpixindicesforcameragrid` subroutine begins first by
 calculating the pixel rays of the projector and camera and updating
@@ -246,9 +239,9 @@ Finally, the simulation environment is updated to contain these "camera
 pixel indices", i.e., the indices of the projected pixel that each
 camera pixel sees.
 
-![Flow diagram showing information flow for
-`findpointmap`.](readme_img/flow_find_point_map.png){#fg_flow_find_point_map
-width="\\textwidth"}
+<img width="100%" src="readme_img/flow_find_point_map.png" name="fg_flow_find_point_map">
+**Figure 4**: Flow diagram showing information flow for
+`findpointmap`.
 
 Figure [4](#fg_flow_find_point_map){reference-type="ref"
 reference="fg_flow_find_point_map"} shows the last critical subroutine,
@@ -283,19 +276,26 @@ that can be expected.
 
 ## Reconstruction of a Plane
 
-Figures [1](#fg_plane_example_proj_img){reference-type="ref"
-reference="fg_plane_example_proj_img"} and
-[2](#fg_plane_example_cam_img){reference-type="ref"
-reference="fg_plane_example_cam_img"} show the projected and captured
+Figures [1](#fg_plane_example_proj_img) and
+[2](#fg_plane_example_cam_img) show the projected and captured
 images for a simple planar surface, with the projector pointed
 "straight-on", and camera at a translation $\mathbf{T} = [50, 0, 0]^T$
-(see Figure [3](#fg_plane_example_world){reference-type="ref"
-reference="fg_plane_example_world"}), and consequently rotated toward
+(see Figure [3](#fg_plane_example_world)), and consequently rotated toward
 the centre of the projected image (so that the entire image can be
 seen). The resulting captured image slants away to one side, the same
 way a square would experience parallax distortion when viewed at an
 angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
+
+<img width="100%" src="readme_img/flow_find_point_map.png" name="fg_flow_find_point_map">
+
+<div style="display: flex; justify-content: space-between; width: 100%;">
+  <div style="width: 50%; text-align: center; margin-left: -25%;">**(a)**: Projected image.</div>
+  <div style="width: 50%; text-align: center; margin-right: -25%;">**(b)**: Captured image.</div>
+</div>
+
+**Figure 5**: Projected and captured images for a planar surface. Notice the only slight
+variations in the camera image; distortion caused by a plane is minimal.
 
 ![Projected
 image.](readme_img/plane_proj_example.png){#fg_plane_example_proj_img}
