@@ -243,8 +243,7 @@ camera pixel sees.
 **Figure 4**: Flow diagram showing information flow for
 `findpointmap`.
 
-Figure [4](#fg_flow_find_point_map){reference-type="ref"
-reference="fg_flow_find_point_map"} shows the last critical subroutine,
+Figure [4](#fg_flow_find_point_map) shows the last critical subroutine,
 `findpointmap`. This subroutine takes the `proj` and `cam` objects as
 input---no other parts of `sim` are passed. These objects contain the
 data that each projected/captured, and their respective pixel rays---but
@@ -261,8 +260,7 @@ using Equations 4 and
 5. The subroutine finally outputs the point
 map, i.e., an array of each of the world points, which forms an input to
 the error estimation and visualisation procedures to give the outputs
-shown in Figure [1](#fg_flow_main){reference-type="ref"
-reference="fg_flow_main"}.
+shown in Figure [1](#fg_flow_main).
 
 [^1]: If the threshold is not met then a warning is flagged, informing
     the user that the learning rate or tolerance should be adjusted. No
@@ -289,19 +287,12 @@ that the camera is working correctly.
 
 <img width="100%" src="readme_img/flow_find_point_map.png" name="fg_flow_find_point_map">
 
-<div style="display: flex; justify-content: space-between; width: 100%;">
-  <div style="width: 50%; text-align: center; margin-left: -25%;">**(a)**: Projected image.</div>
-  <div style="width: 50%; text-align: center; margin-right: -25%;">**(b)**: Captured image.</div>
-</div>
+| ![Captured image.](readme_img/plane_cam_example.png){#fg_plane_example_cam_img} | ![Projected image.](readme_img/plane_proj_example.png){#fg_plane_example_proj_img} |
+| **(a)**: Projected image. | **(b)**: Captured image. |
+|-----------|-----------|
 
 **Figure 5**: Projected and captured images for a planar surface. Notice the only slight
 variations in the camera image; distortion caused by a plane is minimal.
-
-![Projected
-image.](readme_img/plane_proj_example.png){#fg_plane_example_proj_img}
-
-![Captured
-image.](readme_img/plane_cam_example.png){#fg_plane_example_cam_img}
 
 Note that the images shown in Figure
 [\[fg_plane_example_imgs\]](#fg_plane_example_imgs){reference-type="ref"
