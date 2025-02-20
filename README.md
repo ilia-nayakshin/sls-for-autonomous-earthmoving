@@ -165,7 +165,7 @@ to help understand the results and discussion, a flowchart showing the
 data transferred throughout the running of the code is provided below.
 
 ![Flow diagram showing main information flow of the
-program.](chapters/simulation/img/flow_main.png){#fg_flow_main
+program.](readme_img/flow_main.png){#fg_flow_main
 width="\\textwidth"}
 
 Figure [1](#fg_flow_main){reference-type="ref" reference="fg_flow_main"}
@@ -200,7 +200,7 @@ error, outputs are displayed for interpretation and data is saved in
 case tests need to be re-analysed again later.
 
 ![Flow diagram showing information flow for `projectandcapture`
-subroutine.](chapters/simulation/img/flow_project_and_capture.png){#fg_flow_project_and_capture
+subroutine.](readme_img/flow_project_and_capture.png){#fg_flow_project_and_capture
 width="\\textwidth"}
 
 Figure [2](#fg_flow_project_and_capture){reference-type="ref"
@@ -215,7 +215,7 @@ Finally, this data is converted to images and `sim` is updated.
 
 ![Flow diagram showing information flow for
 `sim.calcprojpixindicesforcameragrid`
-subroutine.](chapters/simulation/img/flow_calc_proj_pix_indices_for_camera_grid.png){#fg_flow_calc_proj_pix_indices
+subroutine.](readme_img/flow_calc_proj_pix_indices_for_camera_grid.png){#fg_flow_calc_proj_pix_indices
 width="\\textwidth"}
 
 The `sim.calcprojpixindicesforcameragrid` subroutine begins first by
@@ -255,7 +255,7 @@ pixel indices", i.e., the indices of the projected pixel that each
 camera pixel sees.
 
 ![Flow diagram showing information flow for
-`findpointmap`.](chapters/simulation/img/flow_find_point_map.png){#fg_flow_find_point_map
+`findpointmap`.](readme_img/flow_find_point_map.png){#fg_flow_find_point_map
 width="\\textwidth"}
 
 Figure [4](#fg_flow_find_point_map){reference-type="ref"
@@ -308,10 +308,10 @@ angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
 
 ![Projected
-image.](chapters/simulation/img/plane_proj_example.png){#fg_plane_example_proj_img}
+image.](readme_img/plane_proj_example.png){#fg_plane_example_proj_img}
 
 ![Captured
-image.](chapters/simulation/img/plane_cam_example.png){#fg_plane_example_cam_img}
+image.](readme_img/plane_cam_example.png){#fg_plane_example_cam_img}
 
 Note that the images shown in Figure
 [\[fg_plane_example_imgs\]](#fg_plane_example_imgs){reference-type="ref"
@@ -336,7 +336,7 @@ setup. This yields the point map shown in Figure
 reference="fg_plane_example_points"}.
 
 ![Setup (and point
-cloud).](chapters/simulation/img/plane_world_example.png){#fg_plane_example_world}
+cloud).](readme_img/plane_world_example.png){#fg_plane_example_world}
 
 ![Point cloud
-(zoomed-in).](chapters/simulation/img/plane_points_example.png){#fg_plane_example_points}
+(zoomed-in).](readme_img/plane_points_example.png){#fg_plane_example_points}
