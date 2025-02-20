@@ -286,12 +286,12 @@ angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
 
 <p align="center">
-  <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img" style="margin-right: 20px;">
+  <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img"> &nbsp;&nbsp;&nbsp;
   <img src="readme_img/plane_proj_example.png" width="40%" name="fg_plane_example_proj_img">
 </p>
 <p align="center">
-  <a width="40%">**(a)**: Projected image.</a>
-  <a width="40%">**(b)**: Captured image.</a>
+  <a width="40%"><b>(a)</b>: Projected image.</a>
+  <a width="40%"><b>(b)</b>: Captured image.</a>
 </p>
 
 **Figure 5**: Projected and captured images for a planar surface. Notice the only slight
