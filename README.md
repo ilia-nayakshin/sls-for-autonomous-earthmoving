@@ -92,9 +92,7 @@ therefore must border one another such that no gaps should be possible.
 
 ## Camera
 
-Recalling the pin-hole camera model from Section
-[\[sc_mnt_pin_hole_model\]](#sc_mnt_pin_hole_model){reference-type="ref"
-reference="sc_mnt_pin_hole_model"}, a camera (making a few simplifying
+Recalling the pin-hole camera model, a camera (making a few simplifying
 assumptions) is an array of light sensors (CCDs) that views the world
 through a pin-hole. This means that all light entering the camera comes
 converges to a single point, i.e., the camera centre. Each pixel simply
@@ -117,9 +115,7 @@ saving it to the corresponding pixel in the captured image.
 
 ## Depth Recovery
 
-Depth recovery was discussed at length in Section
-[\[sc_depth_recovery\]](#sc_depth_recovery){reference-type="ref"
-reference="sc_depth_recovery"} and so will not be described in detail
+Depth recovery was discussed at length in the work and so will not be described in detail
 here. Since the simulation environment calculates the pixel rays for
 both the camera and projector in order to calculate what the camera
 sees, the vectors $\mathbf{\hat{n}}$ are already available and
@@ -146,10 +142,7 @@ minimum distance from the surface. To calculate this, one would need to
 find gradient vectors at the surface, perform potentially
 computationally expensive searches, or make simplifying assumptions
 which would likely reduce the flexibility of the code. Therefore, to
-keep computations light (bearing in mind the discussion of simulation
-time in Section
-[\[sc_brute_force\]](#sc_brute_force){reference-type="ref"
-reference="sc_brute_force"}), error is instead estimated by taking the
+keep computations light, error is instead estimated by taking the
 'correct' position of the world point as the output of the surface
 function, with the estimated world point as the input: correct =
 surface(estimated). The error is then simply the magnitude of the
@@ -237,9 +230,7 @@ triangular `simplane` objects (sub-planes) can are found. For each
 camera ray, every sub-plane is considered. First, the intersection of
 the (unconstrained) plane and the ray is found, then the loop checks if
 the intersection is within the triangular sub-plane (the details of this
-technique are provided in Appendix
-[\[ap_sub-plane\]](#ap_sub-plane){reference-type="ref"
-reference="ap_sub-plane"}). Once again, the lack of constraints on the
+technique are provided in Appendix A). Once again, the lack of constraints on the
 surface means that a ray could intersect a surface at multiple points.
 Moreover, the simulation environment allows for multiple surfaces to be
 considered at once. Since in the real world a camera cannot see through
@@ -272,10 +263,8 @@ This subroutine then decodes the images stored in `proj` and `cam` into
 indices---one for each projected light-plane. The normal vectors,
 $\mathbf{\hat{n}}$ of each of these light planes are then found, and all
 this information is used to calculate estimated depth and world points
-using Equations [\[eq_depth\]](#eq_depth){reference-type="ref"
-reference="eq_depth"} and
-[\[eq_world_point\]](#eq_world_point){reference-type="ref"
-reference="eq_world_point"}. The subroutine finally outputs the point
+using Equations 4 and
+5. The subroutine finally outputs the point
 map, i.e., an array of each of the world points, which forms an input to
 the error estimation and visualisation procedures to give the outputs
 shown in Figure [1](#fg_flow_main){reference-type="ref"
@@ -327,9 +316,7 @@ reference="fg_plane_example_all_cam_imgs"}).
 These images are critical to allow the depth to be recovered, however,
 since including each of the projected images does not, in general, aid
 discussion, they will be omitted from any further results presented in
-this report for the sake of brevity. As discussed in Section
-[\[sc_depth_recovery\]](#sc_depth_recovery){reference-type="ref"
-reference="sc_depth_recovery"}, the point cloud can be recovered using
+this report for the sake of brevity. The point cloud can be recovered using
 these images and the known internal and external parameters of the
 setup. This yields the point map shown in Figure
 [4](#fg_plane_example_points){reference-type="ref"
