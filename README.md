@@ -310,22 +310,22 @@ unique light plane index to be recovered (Figures
 [7](#fg_plane_example_all_cam_imgs)).
 
 <p align="center" name="fg_plane_example_all_proj_imgs">
-  <img src="readme_img/plane_proj_example_img1.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_proj_example_img2.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_proj_example_img3.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_proj_example_img4.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_proj_example_img5.png" width="20%">
+  <img src="readme_img/plane_proj_example_img1.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img2.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img3.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img4.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img5.png" width="15%">
 </p>
 
 **Figure 6**: The five other projected images used to recover the point cloud.
 
 
 <p align="center" name="fg_plane_example_all_cam_imgs">
-  <img src="readme_img/plane_cam_example_img1.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_cam_example_img2.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_cam_example_img3.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_cam_example_img4.png" width="20%"> &nbsp;&nbsp;&nbsp;
-  <img src="readme_img/plane_cam_example_img5.png" width="20%">
+  <img src="readme_img/plane_cam_example_img1.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img2.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img3.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img4.png" width="15%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img5.png" width="15%">
 </p>
 
 **Figure 7**: The five other captured images used to recover the point cloud.
