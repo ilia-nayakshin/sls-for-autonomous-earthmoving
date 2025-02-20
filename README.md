@@ -157,9 +157,10 @@ As a further aid to understanding the functionality of the program, and
 to help understand the results and discussion, a flowchart showing the
 data transferred throughout the running of the code is provided below.
 
+<img width="100%" src="readme_img/flow_main.png">
 ![Flow diagram showing main information flow of the
-program.](readme_img/flow_main.png){#fg_flow_main
-width="\\textwidth"}
+program.](readme_img/flow_main.png)
+**Figure 1**: Flow diagram showing main information flow of the program.
 
 Figure [1](#fg_flow_main){reference-type="ref" reference="fg_flow_main"}
 above shows the main loop of the program. The first step is to define
