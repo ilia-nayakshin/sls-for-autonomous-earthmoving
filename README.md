@@ -286,7 +286,7 @@ angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
 
 <p align="center">
-  <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img">
+  <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img" style="margin-right: 20px;">
   <img src="readme_img/plane_proj_example.png" width="40%" name="fg_plane_example_proj_img">
 </p>
 <p align="center">
