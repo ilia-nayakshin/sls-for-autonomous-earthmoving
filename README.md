@@ -285,11 +285,14 @@ way a square would experience parallax distortion when viewed at an
 angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
 
-<img width="100%" src="readme_img/flow_find_point_map.png" name="fg_flow_find_point_map">
-
-| ![Captured image.](readme_img/plane_cam_example.png){#fg_plane_example_cam_img} | ![Projected image.](readme_img/plane_proj_example.png){#fg_plane_example_proj_img} |
-| **(a)**: Projected image. | **(b)**: Captured image. |
-|-----------|-----------|
+<p align="center">
+  <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img">
+  <img src="readme_img/plane_proj_example.png" width="40%" name="fg_plane_example_proj_img">
+</p>
+<p align="center">
+  <a width="40%">**(a)**: Projected image.</a>
+  <a width="40%">**(b)**: Captured image.</a>
+</p>
 
 **Figure 5**: Projected and captured images for a planar surface. Notice the only slight
 variations in the camera image; distortion caused by a plane is minimal.
