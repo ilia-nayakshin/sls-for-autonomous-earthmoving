@@ -274,18 +274,18 @@ that can be expected.
 
 ## Reconstruction of a Plane
 
-Figures [1](#fg_plane_example_proj_img) and
-[2](#fg_plane_example_cam_img) show the projected and captured
+Figures [5a](#fg_plane_example_proj_img) and
+[5b](#fg_plane_example_cam_img) show the projected and captured
 images for a simple planar surface, with the projector pointed
 "straight-on", and camera at a translation $\mathbf{T} = [50, 0, 0]^T$
-(see Figure [3](#fg_plane_example_world)), and consequently rotated toward
+(see Figure [8a](#fg_plane_example_world)), and consequently rotated toward
 the centre of the projected image (so that the entire image can be
 seen). The resulting captured image slants away to one side, the same
 way a square would experience parallax distortion when viewed at an
 angle in 3D. This distortion is what we would expect, and is evidence
 that the camera is working correctly.
 
-<p align="center">
+<p align="center" name="fg_plane_example_imgs">
   <img src="readme_img/plane_cam_example.png" width="40%" name="fg_plane_example_cam_img"> &nbsp;&nbsp;&nbsp;
   <img src="readme_img/plane_proj_example.png" width="40%" name="fg_plane_example_proj_img">
 </p>
@@ -298,15 +298,33 @@ that the camera is working correctly.
 variations in the camera image; distortion caused by a plane is minimal.
 
 Note that the images shown in Figure
-[\[fg_plane_example_imgs\]](#fg_plane_example_imgs){reference-type="ref"
-reference="fg_plane_example_imgs"} are not enough on their own to
+[5](#fg_plane_example_imgs) are not enough on their own to
 uniquely identify stripes of pixels; in fact, a total of six images are
 projected and captured, and their combination is what allows for a
 unique light plane index to be recovered (Figures
-[\[fg_plane_example_all_proj_imgs\]](#fg_plane_example_all_proj_imgs){reference-type="ref"
-reference="fg_plane_example_all_proj_imgs"},
-[\[fg_plane_example_all_cam_imgs\]](#fg_plane_example_all_cam_imgs){reference-type="ref"
-reference="fg_plane_example_all_cam_imgs"}).
+[6](#fg_plane_example_all_proj_imgs),
+[7](#fg_plane_example_all_cam_imgs)).
+
+<p align="center" name="fg_plane_example_all_proj_imgs">
+  <img src="readme_img/plane_proj_example_img1.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img2.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img3.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img4.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_proj_example_img5.png" width="20%">
+</p>
+
+**Figure 6**: The five other projected images used to recover the point cloud.
+
+
+<p align="center" name="fg_plane_example_all_cam_imgs">
+  <img src="readme_img/plane_cam_example_img1.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img2.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img3.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img4.png" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_cam_example_img5.png" width="20%">
+</p>
+
+**Figure 7**: The five other captured images used to recover the point cloud.
 
 These images are critical to allow the depth to be recovered, however,
 since including each of the projected images does not, in general, aid
@@ -314,11 +332,16 @@ discussion, they will be omitted from any further results presented in
 this report for the sake of brevity. The point cloud can be recovered using
 these images and the known internal and external parameters of the
 setup. This yields the point map shown in Figure
-[4](#fg_plane_example_points){reference-type="ref"
-reference="fg_plane_example_points"}.
+[8b](#fg_plane_example_points).
 
-![Setup (and point
-cloud).](readme_img/plane_world_example.png){#fg_plane_example_world}
+<p align="center">
+  <img src="readme_img/plane_world_example.png" width="40%" name="fg_plane_example_world"> &nbsp;&nbsp;&nbsp;
+  <img src="readme_img/plane_points_example.png" width="40%" name="fg_plane_example_points">
+</p>
+<p align="center">
+  <a width="40%"><b>(a)</b>: Setup (and point cloud).</a>
+  <a width="40%"><b>(b)</b>: Point cloud (zoomed-in).</a>
+</p>
 
-![Point cloud
-(zoomed-in).](readme_img/plane_points_example.png){#fg_plane_example_points}
+**Figure 8**: Positions of the camera and the projector relative to the surface, alongside the
+reconstructed point cloud.
